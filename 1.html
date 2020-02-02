@@ -1,0 +1,46 @@
+﻿<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Nestea is cool hacker</title>
+		<link rel="stylesheet" type="text/css" href="design.css" >
+	</head>
+	<body>
+		<div class="ad">Тут могла быть</br>ваша реклама</div>
+		<img id="bub" src="bub.png" onclick="hlop()">
+		<script>
+			var pos1 = 0;
+			var pos2 = 0;
+			var pos3 = 61;
+			var bub = document.getElementById("bub");
+			var t1 = setInterval(move1, 30);  
+			function move1() {
+				if (pos1 >= 600){
+					clearInterval(t1);
+				}
+				else {
+					pos1+=1;
+					bub.style.bottom = pos1+"px";
+					if(pos2<=60){
+						pos2+=1;
+						bub.style.left = pos2+"px";
+					}	
+					if(pos2>60){
+						pos3=pos3-1;
+						bub.style.left = pos3+"px";
+					}
+					if(pos3==0){
+						pos2=0;
+						pos3=61;
+					}
+				}			
+			}
+			function hlop() {
+				bub.src = "q.png";
+				bub.style.width = "100px";
+				bub.style.height = "100px";
+				setTimeout(() => { bub.remove(); }, 800);	
+				clearInterval(t1);			
+			}
+		</script>
+	</body>
+</html>
